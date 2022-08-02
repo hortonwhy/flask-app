@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        {% block head %}
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="/static/tab.css" />
+
+        {% block styles %}
+            <!-- Bootstrap CSS -->
+            {{ bootstrap.load_css() }}
+        {% endblock %}
+
+        <title>Your page title</title>
+        {% endblock %}
+    </head>
+    <body>
+  {% block navbar %}
+  {% endblock %}
+<div class="container-fluid">
+        <!-- Your page content -->
+	<div class="row">
+	<div class="col">
+        {% block content %}{% endblock %}
+	</div>
+	<div class="col-3">
+
+  <div class="card mt-3">
+    <div class="card-header">
+  <strong>Sidebar</strong>
+  </div>
+    <div class="card-body">
+    <h5 class="card-title card p-1"><a class="navbar-brand" href="/index">Latest</h5>
+    <h5 class="card-title card p-1"><a class="navbar-brand" href="/index">Latest</h5>
+    <h5 class="card-title card p-1"><a class="navbar-brand" href="/index">Latest</h5>
+      </div>
+  </div>
+	  </div>
+	</div>
+	<div>
+	 
+
+        {% block scripts %}
+            <!-- Optional JavaScript -->
+            {{ bootstrap.load_js() }}
+	<script src="{{url_for('static', filename='tab.js')}}"></script>
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Index{% endblock %}
+
+{% block navbar %}
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="/index">Index</a>
+  <a class="navbar-brand" href="/about">About</a>
+  {% if email %}
+  <a class="navbar-brand" href="/post">Post</a>
+  <a class="navbar-brand" href="/logout">Logout</a>
+  {% else %} 
+  <a class="navbar-brand" href="/login">Login</a>
+  <a class="navbar-brand" href="/register">Register</a>
+  {% endif %}
+</nav>
+{% endblock %}
+
+{% block content %}
+<p>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+      <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+  {% for user in users %}
+  <div class="card">
+    <div class="card-header">
+  <strong>{{ users[user]["author"][0]}} {{ posts[post]["author"][1] }}</strong>
+  {{ posts[post]["created"] }}
+  </div>
+    <h4 class="card-title ml-2">{{ posts[post]["title"] }}</h4>
+    <div class="card-body">
+      {{ posts[post]["body"] }}
+      </div>
+  </div>
+  {% endfor %}
+
+</p>
+{% endblock %}
