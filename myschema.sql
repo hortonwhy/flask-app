@@ -8,7 +8,7 @@ CREATE TABLE users(
   firstName VARCHAR(255) NOT NULL,
   lastName VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL,
-  authed BOOLEAN NOT NULL DEFAULT FALSE,
+  authed BOOLEAN NOT NULL DEFAULT 0,
   UNIQUE(email)
 );
 
@@ -22,7 +22,7 @@ CREATE TABLE posts(
 );
 
 INSERT INTO users(email, firstName, lastName, password, authed) VALUES(
-"hortonwhy@gmail.com", "Wyatt", "Horton", "123", TRUE);
+"hortonwhy@gmail.com", "Wyatt", "Horton", "123", 1);
 
 INSERT INTO users(email, firstName, lastName, password) VALUES(
 "hortonwhy2@gmail.com", "John", "Adams", "123");
