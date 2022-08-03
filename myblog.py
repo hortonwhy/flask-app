@@ -8,6 +8,11 @@ from lite import delete_post, edit_post
 from myforms import LoginForm, RegisterForm, PostForm
 
 
+app = Flask(__name__)
+app.secret_key = b"\x1aAoT\\\xcf\xa4\xb2\xf7\r\x16)\xb7h)d#\x81\xba@O\xc2\x12\xda"
+bootstrap = Bootstrap4(app)
+
+
 @app.route("/")
 @app.route("/index")
 def index():
@@ -160,7 +165,4 @@ def edit_post_route(post_id):
 
 
 if __name__ == "__main__":
-    app = Flask(__name__)
-    app.secret_key = b"\x1aAoT\\\xcf\xa4\xb2\xf7\r\x16)\xb7h)d#\x81\xba@O\xc2\x12\xda"
-    bootstrap = Bootstrap4(app)
     app.run(host="0.0.0.0", port=80)
